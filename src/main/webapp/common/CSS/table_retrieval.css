@@ -1,0 +1,13 @@
+/* table_retrieval.css
+   테이블 정보검색 출력 스타일시트 */
+  
+  table {width:100%; border:2px solid grey; border-collapse:collapse;}
+  caption {font-size:20pt; font-weight:bold;}
+
+  th, td {border:1px solid grey; padding:3px;}
+  th {background-color:#CFD0ED;}
+  td {background-color:#FAFAEE; text-align:center;}
+  
+  .button_ins {background-color: skyblue;}
+  .button_del {background-color: red;}
+  .button_reg {background-color: #FF00FF;}

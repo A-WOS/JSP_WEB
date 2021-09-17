@@ -1,0 +1,8 @@
+  /* login_table.css 로그 인 테이블   */
+  
+  table {width:250px; text-align:center; border-collapse:collapse;}
+  caption {font-size:20pt; font-weight:bold;}
+
+  th, td {border:1px solid grey; padding:2px;}
+  th {width:50%; background-color:#CFD0ED;}
+  td {text-align:left;}
