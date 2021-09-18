@@ -26,27 +26,9 @@ request.setCharacterEncoding("UTF-8");
 </head>
 
 <body>
+	<%@ include file = "../config/db_config.jsp" %>
 	<%
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-
-	String driverClass = "com.mysql.jdbc.Driver";
-
 	try {
-		Class.forName(driverClass);
-	} catch (ClassNotFoundException err) { }
-
-	//  Mysql DB 서버와 데이터베이스 연결(connect server & database )
-	// "jdbc:mysql://server_IP:3306/datbase_name
-	String url = "jdbc:mysql://localhost:3306/univ";  // TODO 환경변수로 관리 필요
-	String id = "root"; // DB 사용자 아이디
-	String pw = "1111"; // DB 사용자 패스워드
-
-	try {
-		conn = DriverManager.getConnection(url, id, pw);
-		out.println("데이터베이스 연결 성공!<Br>");
-
 		// SQL 질의어 처리(Perform SQL query(DML))
 		// 학생 테이블 검색
 		String sql = "select * from student";
@@ -67,17 +49,16 @@ request.setCharacterEncoding("UTF-8");
 			<%
 			// 학생 정보 출력 
 			while (rs.next()) {
-				String hakbun = rs.getString("hakbun");
+				int hakbun = rs.getInt("hakbun");
 				String name = rs.getString("name");
-				String year = rs.getString("year");
-				year = year + "학년";
+				int year = rs.getInt("year");
 				String dept = rs.getString("dept");
 				String addr = rs.getString("addr");
 			%>
 			<tr>
 				<td><%=hakbun%></td>
 				<td><%=name%></td>
-				<td><%=year%></td>
+				<td><%=year%>학년</td>
 				<td><%=dept%></td>
 				<td><%=addr%></td>
 				<td style="text-align: center;"><input type="button"

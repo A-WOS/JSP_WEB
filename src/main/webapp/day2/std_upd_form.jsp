@@ -13,32 +13,25 @@
 <body>
 	<%
 	String send_id = request.getParameter("send_id");
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-
-	Class.forName("com.mysql.jdbc.Driver");
-	String hakbun = null;
+	%>
+	<%@ include file = "../config/db_config.jsp" %>
+	<% 
+	int hakbun = -1;
 	String name = null;
-	String year = null;
+	int year = -1;
 	String dept = null;
 	String addr = null;
 
 	try {
-		String url = "jdbc:mysql://localhost:3306/univ";
-		String id = "root"; // DB 사용자 아이디
-		String pw = "1111"; // DB 사용자 패스워드
-		conn = DriverManager.getConnection(url, id, pw);
-
 		String sql = "select * from student where hakbun=?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, send_id);
 
 		rs = pstmt.executeQuery();
 		if (rs.next()) {
-			hakbun = rs.getString("hakbun");
+			hakbun = rs.getInt("hakbun");
 			name = rs.getString("name");
-			year = rs.getString("year") + "학년";
+			year = rs.getInt("year");
 			dept = rs.getString("dept");
 			addr = rs.getString("addr");
 		}
@@ -71,10 +64,14 @@
 			</tr>
 			<tr>
 				<th>&nbsp; 학 년</th>
-				<td><input type="radio" name="year" value="<%=year%>" required>1학년&nbsp;
-					<input type="radio" name="year" value="<%=year%>" required>2학년&nbsp;
-					<input type="radio" name="year" value="<%=year%>" required>3학년&nbsp;
-					<input type="radio" name="year" value="<%=year%>" required>4학년</td>
+				
+				<td>
+				<%=year %>
+				<input type="radio" name="year" value="1"  ${year eq 1 ? 'checked' : ''} required>1학년&nbsp;
+					<input type="radio" name="year" value="2"  ${year eq 2 ? 'checked' : ''} required>2학년&nbsp;
+					<input type="radio" name="year" value="3"  ${year eq 3 ? 'checked' : ''} required>3학년&nbsp;
+					<input type="radio" name="year" value="4"  ${year eq 4 ? 'checked' : ''} required>4학년
+				</td>
 			</tr>
 			<tr>
 				<th>&nbsp; 학 과</th>
