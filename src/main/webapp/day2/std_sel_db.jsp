@@ -13,7 +13,7 @@ request.setCharacterEncoding("UTF-8");
 <head>
 <title>학생 테이블(student) 학생 정보 조회(std_sel_db.jsp)</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./common/CSS/table_retrieval.css">
+<link rel="stylesheet" href="../common/CSS/table_retrieval.css">
 <script type="text/javascript">
 	function delConfirm(hakbun) {
 		if (confirm('진짜로 삭제하시겠습니까?') == true) {

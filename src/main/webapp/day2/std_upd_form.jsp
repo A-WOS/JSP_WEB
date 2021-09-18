@@ -7,7 +7,7 @@
 <head>
 <title>학생 테이블(student) 학생 정보 수정(std_upd_form.jsp)</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./common/CSS/student_insert.css">
+<link rel="stylesheet" href="../common/CSS/student_insert.css">
 </head>
 
 <body>

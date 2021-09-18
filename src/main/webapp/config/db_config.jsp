@@ -1,4 +1,5 @@
 
+<%@page import="java.sql.*"%>
 <%
 	  // 객체 참조 변수
 	  Connection conn = null;
