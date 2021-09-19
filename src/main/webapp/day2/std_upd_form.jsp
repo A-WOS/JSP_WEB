@@ -66,11 +66,10 @@
 				<th>&nbsp; 학 년</th>
 				
 				<td>
-				<%=year %>
-				<input type="radio" name="year" value="1"  ${year eq 1 ? 'checked' : ''} required>1학년&nbsp;
-					<input type="radio" name="year" value="2"  ${year eq 2 ? 'checked' : ''} required>2학년&nbsp;
-					<input type="radio" name="year" value="3"  ${year eq 3 ? 'checked' : ''} required>3학년&nbsp;
-					<input type="radio" name="year" value="4"  ${year eq 4 ? 'checked' : ''} required>4학년
+					<input type="radio" name="year" value="1"  <% if (year == 1) out.print("checked"); %> required>1학년&nbsp;
+					<input type="radio" name="year" value="2"  <% if (year == 2) out.print("checked"); %> required>2학년&nbsp;
+					<input type="radio" name="year" value="3"  <% if (year == 3) out.print("checked"); %> required>3학년&nbsp;
+					<input type="radio" name="year" value="4"  <% if (year == 4) out.print("checked"); %> required>4학년
 				</td>
 			</tr>
 			<tr>
